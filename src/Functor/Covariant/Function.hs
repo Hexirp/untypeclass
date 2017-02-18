@@ -9,7 +9,7 @@ module Functor.Covariant.Function
   , fmap_function
   , module Functor.Covariant
   ) where
-  import Function.Instance.Category
+  import Function.Is.Category
   import Functor.Covariant
 
   data Function :: (* -> *) -> * where

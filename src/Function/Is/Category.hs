@@ -3,7 +3,7 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
 
-module Function.Instance.Category
+module Function.Is.Category
   ( function_is_category
   ) where
   import Category

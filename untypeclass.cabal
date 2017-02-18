@@ -29,8 +29,8 @@ library
   exposed-modules:
     Category,
     Function,
-    Function.Instance,
-    Function.Instance.Category
+    Function.Is,
+    Function.Is.Category
     Functor,
     Functor.Covariant,
     Functor.Covariant.Function,

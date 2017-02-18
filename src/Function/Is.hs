@@ -3,4 +3,4 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
 
-module Function.Instance () where
+module Function.Is () where

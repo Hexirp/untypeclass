@@ -27,16 +27,16 @@ cabal-version:       >=1.10
 
 library
   exposed-modules:
-    Category,
-    Function,
-    Function.Is,
-    Function.Is.Category,
-    Function.Is.Functor,
-    Function.Is.Functor.Covariant,
-    Function.Is.Functor.Covariant.Function,
-    Functor,
-    Functor.Covariant,
-    Functor.Covariant.Function,
+    Category
+    Function
+    Function.Is
+    Function.Is.Category
+    Function.Is.Functor
+    Function.Is.Functor.Covariant
+    Function.Is.Functor.Covariant.Function
+    Functor
+    Functor.Covariant
+    Functor.Covariant.Function
     Semigroupoid
   build-depends:       base >=4.9 && <4.10
   hs-source-dirs:      src

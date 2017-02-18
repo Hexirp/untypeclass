@@ -1,0 +1,1 @@
+module Function.Is.Functor () where

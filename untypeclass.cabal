@@ -30,7 +30,10 @@ library
     Category,
     Function,
     Function.Is,
-    Function.Is.Category
+    Function.Is.Category,
+    Function.Is.Functor,
+    Function.Is.Functor.Covariant,
+    Function.Is.Functor.Covariant.Function,
     Functor,
     Functor.Covariant,
     Functor.Covariant.Function,

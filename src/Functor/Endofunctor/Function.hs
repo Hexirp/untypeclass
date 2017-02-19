@@ -3,26 +3,26 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
 
-module Functor.Covariant.Function
+module Functor.Endofunctor.Function
   ( Function
   , function
   , fmap_function
-  , module Functor.Covariant
+  , module Functor.Endofunctor
   ) where
   import Function.Is.Category
-  import Functor.Covariant
+  import Functor.Endofunctor
 
   data Function :: (* -> *) -> * where
     Function
-      :: Covariant (->) f
+      :: Endofunctor (->) f
       -> Function f
 
   function
     :: (forall a b. (a -> b) -> f a -> f b)
     -> Function f
-  function f = Function (covariant function_is_category f)
+  function f = Function (endofunctor function_is_category f)
 
   fmap_function
     :: Function f
     -> (a -> b) -> f a -> f b
-  fmap_function (Function f) = fmap_covariant f
+  fmap_function (Function f) = fmap_endofunctor f

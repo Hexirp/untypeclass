@@ -27,3 +27,6 @@ module Category
     :: Category cat
     -> cat a a
   id (Category _ f) = f
+
+  category_extend_semigroupoid :: Category cat -> Semigroupoid cat
+  category_extend_semigroupoid (Category c _) = c

@@ -6,20 +6,14 @@
 module Functor.Endofunctor.Function.Apply where
   import Functor.Endofunctor.Function
 
-  data Duple a b = Duple a b
-
-  data Kleisli :: (* -> *) -> * -> * -> * where
-    Kleisli
-      :: (a -> f b)
-      -> Kleisli f a b
-
-  data Product :: (* -> * -> *) -> (* -> * -> *) -> * where
-    Product
-      :: (forall a b c. cat a b -> cat a c -> cat a (pro b c))
-      -> Product cat pro
+  -- | From <https://github.com/typelevel/cats/blob/v0.9.0/core/src/main/scala/cats/Cartesian.scala>
+  data Cartesian :: (* -> *) -> * where
+    Cartesian
+      :: (forall a b c. (a -> f b) -> (a -> f c) -> a -> f (b, c))
+      -> Cartesian f
 
   data Apply :: (* -> *) -> * where
     Apply
-      :: Product (Kleisli f) Duple -- 「ある圏に対する直積が存在した時、それは同型を含めて、ただ一つのみである」。よって、Dupleというオリジナルなタプルを使っても問題ない。
+      :: Cartesian　f
       -> Function f
       -> Apply f

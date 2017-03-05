@@ -35,6 +35,7 @@ library
     Function.Is.Functor.Endofunctor
     Function.Is.Functor.Endofunctor.Function
     Functor
+    Functor.Contravariant
     Functor.Endofunctor
     Functor.Endofunctor.Function
     Functor.Endofunctor.Function.Apply

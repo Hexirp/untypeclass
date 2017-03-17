@@ -4,19 +4,18 @@
 {-# LANGUAGE KindSignatures #-}
 
 module Category
-  ( Category
+  ( Category(Category)
   , category
   , extend_semigroupoid
   , id
-  , module Semigroupoid
   ) where
   import Semigroupoid
 
   data Category :: (* -> * -> *) -> * where
-    Category 
+    Category ::
       { extend_semigroupoid :: Semigroupoid cat
       , id :: (forall a. cat a a)
-      } :: Category cat
+      } -> Category cat
 
   category 
     :: (forall a b c. cat b c -> cat a b -> cat a c)

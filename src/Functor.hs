@@ -7,7 +7,6 @@ module Functor
   ( Functor
   , functor
   , fmap
-  , module Category
   ) where
   import Category
   

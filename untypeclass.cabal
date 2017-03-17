@@ -28,7 +28,6 @@ cabal-version:       >=1.10
 library
   exposed-modules:
     Category
-    Function
     Functor
     Semigroupoid
   build-depends:       base >=4.9 && <4.10

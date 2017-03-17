@@ -30,10 +30,6 @@ library
     Category
     Function
     Functor
-    Functor.Contravariant
-    Functor.Endofunctor
-    Functor.Endofunctor.Function
-    Functor.Endofunctor.Function.Apply
     Semigroupoid
   build-depends:       base >=4.9 && <4.10
   hs-source-dirs:      src

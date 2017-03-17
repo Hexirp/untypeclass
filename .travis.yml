@@ -29,5 +29,6 @@ addons:
     - ghc-8.0.2
 
 cache:
+  apt: true
   directories:
-  - $HOME/.stack
+    - $HOME/.stack

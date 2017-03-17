@@ -20,13 +20,10 @@ before_install:
   - export PATH=/opt/ghc/8.0.1/bin:$PATH
 
 install:
-  - travis_wait stack --no-terminal --skip-ghc-check setup
+  - stack --skip-ghc-check setup
 
 script:
-  - stack --no-terminal --skip-ghc-check test
-
-script:
-  - stack --no-terminal --skip-ghc-check test
+  - stack --skip-ghc-check test
 
 cache:
   directories:

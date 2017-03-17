@@ -1,1 +1,0 @@
-module Function.Is.Functor.Endofunctor () where

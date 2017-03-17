@@ -10,9 +10,3 @@ language: haskell
 
 ghc:
   - 8.2
-
-install:
-  - cabal install --only-dependencies
-
-script:
-  - cabal build

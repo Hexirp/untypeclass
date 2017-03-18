@@ -19,8 +19,8 @@ module Category.Semigroupal
       , from :: cat b a
       } -> Isomorphism cat a b
 
-  data Semgroupal :: (* -> * -> *) -> (* -> * -> *) -> * where
-    Semgroupal ::
+  data Semigroupal :: (* -> * -> *) -> (* -> * -> *) -> * where
+    Semigroupal ::
       { tensor_product :: Bifunctor cat cat cat pro
       , associator :: Isomorphism cat (pro (pro a b) c) (pro a (pro b c))
       } -> Semigroupal cat pro

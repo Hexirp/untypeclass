@@ -11,7 +11,7 @@ module Functor.PFunctor
   ) where
   import Functor
 
-  type Flip t a b = t b a
+  newtype Flip t a b = Flip { flip :: t b a }
 
   data PFunctor :: (* -> * -> *) -> (* -> * -> *) -> (* -> * -> *) -> * where
     PFunctor ::

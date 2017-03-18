@@ -12,7 +12,7 @@ module Functor.QFunctor
 
   data QFunctor :: (* -> * -> *) -> (* -> * -> *) -> (* -> * -> *) -> * where
     QFunctor ::
-      { extend_functor :: (forall a. Functor cat dat (pro a) f)
-      } -> QFunctor cat dat pro f
+      { extend_functor :: (forall a. Functor cat dat (pro a))
+      } -> QFunctor cat dat pro
 
   qfunctor = QFunctor

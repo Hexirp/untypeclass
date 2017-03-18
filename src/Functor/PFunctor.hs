@@ -15,7 +15,7 @@ module Functor.PFunctor
 
   data PFunctor :: (* -> * -> *) -> (* -> * -> *) -> (* -> * -> *) -> * where
     PFunctor ::
-      { extend_functor :: (forall a. Functor cat dat (Flip pro a) f)
-      } -> PFunctor cat dat pro f
+      { extend_functor :: (forall a. Functor cat dat (Flip pro a))
+      } -> PFunctor cat dat pro
 
   pfunctor = PFunctor

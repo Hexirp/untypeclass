@@ -9,8 +9,8 @@ module Functor.Bifunctor
   , extend_pfunctor
   , extend_qfunctor
   ) where
-  import PFunctor (PFunctor)
-  import QFunctor (QFunctor)
+  import Functor.PFunctor (PFunctor)
+  import Functor.QFunctor (QFunctor)
 
   data Bifunctor :: (* -> * -> *) -> (* -> * -> *) -> (* -> * -> *) -> (* -> * -> *) -> * where
     Bifunctor ::

@@ -6,7 +6,7 @@
 module Functor.QFunctor
   ( QFunctor(QFunctor)
   , qfunctor
-  , extend_funcor
+  , extend_functor
   ) where
   import Functor
 

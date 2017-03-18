@@ -28,6 +28,7 @@ cabal-version:       >=1.10
 library
   exposed-modules:
     Category
+    Category.Semigroupal
     Functor
     Functor.PFunctor
     Functor.QFunctor

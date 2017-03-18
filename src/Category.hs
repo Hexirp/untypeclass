@@ -11,6 +11,9 @@ module Category
   ) where
   import Semigroupoid
 
+  -- > (.) = compose $ extend_semigroupoid #
+  -- > id' = id #
+  -- > id' . x = x . id' = x
   data Category :: (* -> * -> *) -> * where
     Category ::
       { extend_semigroupoid :: Semigroupoid cat

@@ -31,9 +31,10 @@ library
     Category.Monoidal
     Category.Semigroupal
     Functor
+    Functor.Bifunctor
+    Functor.Monoidal
     Functor.PFunctor
     Functor.QFunctor
-    Functor.Bifunctor
     Isomorphism
     Semigroupoid
   build-depends:       base >=4.9 && <4.10

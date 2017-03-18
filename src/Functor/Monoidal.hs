@@ -12,6 +12,7 @@ module Functor.Monoidal
   , product
   ) where
   import qualified Category.Monoidal as C (Monoidal)
+  import Functor (Functor)
 
   data Monoidal :: (* -> * -> *) -> (* -> * -> *) -> * -> (* -> * -> *) -> (* -> * -> *) -> * -> (* -> *) -> * where
     Monoidal ::

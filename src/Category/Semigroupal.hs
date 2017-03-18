@@ -1,5 +1,4 @@
 {-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
 
@@ -7,17 +6,9 @@ module Category.Semigroupal
   ( Semigroupal(Semigroupal)
   , tensor_product
   , associator
-  , Isomorphism (Isomorphism)
-  , to
-  , from
   ) where
   import Functor.Bifunctor (Bifunctor)
-
-  data Isomorphism :: (* -> * -> *) -> * -> * -> * where
-    Isomorphism ::
-      { to :: cat a b
-      , from :: cat b a
-      } -> Isomorphism cat a b
+  import Isomorphism
 
   data Semigroupal :: (* -> * -> *) -> (* -> * -> *) -> * where
     Semigroupal ::

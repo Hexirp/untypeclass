@@ -7,7 +7,7 @@
 module Functor.PFunctor
   ( PFunctor(PFunctor)
   , pfunctor
-  , extend_funcor
+  , extend_functor
   ) where
   import Functor
 

@@ -8,6 +8,8 @@ module Functor.PFunctor
   ( PFunctor(PFunctor)
   , pfunctor
   , extend_functor
+  , Flip(Flip)
+  , flip
   ) where
   import Functor
 

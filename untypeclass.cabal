@@ -31,6 +31,7 @@ library
     Functor
     Functor.PFunctor
     Functor.QFunctor
+    Functor.Bifunctor
     Semigroupoid
   build-depends:       base >=4.9 && <4.10
   hs-source-dirs:      src

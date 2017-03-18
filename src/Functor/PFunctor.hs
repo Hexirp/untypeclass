@@ -4,7 +4,7 @@
 {-# LANGUAGE KindSignatures #-}
 {-# LANGUAGE LiberalTypeSynonyms #-}
 
-module PFunctor
+module Functor.PFunctor
   ( PFunctor(PFunctor)
   , pfunctor
   , extend_funcor
@@ -17,3 +17,5 @@ module PFunctor
     PFunctor ::
       { extend_functor :: (forall a. Functor cat dat (Filp pro a) f)
       } -> PFunctor cat dat pro f
+
+  pfunctor = PFunctor

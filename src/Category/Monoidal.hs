@@ -17,6 +17,6 @@ module Category.Monoidal
     Monoidal ::
       { extend_semigroupal :: Semigroupal cat pro
       , tensor_unit :: i
-      , left_unitor :: Isomorphism cat (pro i a) a
-      , right_unitor :: Isomorphism cat (pro a i) a
+      , left_unitor :: (forall a. Isomorphism cat (pro i a) a)
+      , right_unitor :: (forall a. Isomorphism cat (pro a i) a)
       } -> Monoidal cat pro i

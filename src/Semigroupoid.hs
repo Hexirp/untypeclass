@@ -9,6 +9,8 @@ module Semigroupoid
   , compose
   ) where
 
+  -- > (.) = compose #
+  -- > x . (y . z) = (x . y) . z
   data Semigroupoid :: (* -> * -> *) -> * where
     Semigroupoid ::
       { compose :: (forall a b c. cat b c -> cat a b -> cat a c)

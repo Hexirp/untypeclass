@@ -14,13 +14,13 @@ module Category.Semigroupal
   import Functor.Bifunctor (Bifunctor)
 
   data Isomorphism :: (* -> * -> *) -> * -> * -> * where
-    Isomorphism
+    Isomorphism ::
       { to :: cat a b
       , from :: cat b a
       } -> Isomorphism cat a b
 
   data Semgroupal :: (* -> * -> *) -> (* -> * -> *) -> * where
-    Semgroupal
+    Semgroupal ::
       { tensor_product :: Bifunctor cat cat cat pro
       , associator :: Isomorphism cat (pro (pro a b) c) (pro a (pro b c))
       } -> Semigroupal cat pro

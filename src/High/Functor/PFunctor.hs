@@ -3,7 +3,7 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
 
-module High.PFunctor where
+module High.Functor.PFunctor where
   import High.Functor (Functor)
 
   data Flip :: ((* -> *) -> (* -> *) -> (* -> *)) -> (* -> *) -> (* -> *) -> * -> * where

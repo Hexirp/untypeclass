@@ -3,9 +3,9 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
 
-module High.Bifunctor where
-  import High.PFunctor (PFunctor)
-  import High.QFunctor (QFunctor)
+module High.Functor.Bifunctor where
+  import High.Functor.PFunctor (PFunctor)
+  import High.Functor.QFunctor (QFunctor)
 
   data Bifunctor :: ((* -> *) -> (* -> *) -> *) -> ((* -> *) -> (* -> *) -> *) -> ((* -> *) -> (* -> *) -> *) -> ((* -> *) -> (* -> *) -> (* -> *)) -> * where
     Bifunctor ::

@@ -32,14 +32,14 @@ library
     Category.Semigroupal
     Functor
     Functor.Adjoint
-    Functor.Bifunctor
     Functor.Endo
     Functor.Endo.Functor
+    Functor.Functor.Bifunctor
+    Functor.Functor.PFunctor
+    Functor.Functor.QFunctor
     Functor.Monoidal
     Functor.Monoidal.Endo
     Functor.Monoidal.Endo.Applicative
-    Functor.PFunctor
-    Functor.QFunctor
     High.Bifunctor
     High.Category
     High.Functor

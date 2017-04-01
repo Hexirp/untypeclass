@@ -8,5 +8,5 @@ module Functor.Endo where
 
   data Endo :: (* -> * -> *) -> * where
     Endo ::
-      { extend_functor -> Functor cat cat f
+      { extend_functor :: Functor cat cat f
       } -> Endo cat f

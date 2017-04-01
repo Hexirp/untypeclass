@@ -3,7 +3,12 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
 
-module Functor.Adjoint where
+module Functor.Adjoint
+  ( Adjoint(Adjoint)
+  , leftFunctor
+  , rightFunctor
+  , adjunct
+  ) where
   import Functor (Functor)
   import Isomorphism (Isomorphism)
 

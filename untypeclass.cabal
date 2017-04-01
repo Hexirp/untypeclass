@@ -37,6 +37,7 @@ library
     Functor.Monoidal.Endo
     Functor.PFunctor
     Functor.QFunctor
+    High.Semigroupoid
     Isomorphism
     NaturalTransformation
     Semigroupoid

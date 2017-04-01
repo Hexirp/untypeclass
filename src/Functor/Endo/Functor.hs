@@ -4,7 +4,7 @@
 {-# LANGUAGE KindSignatures #-}
 
 module Functor.Endo.Functor where
-  import Endo (Endo)
+  import Functor.Endo (Endo)
 
   type Hask = (->)
 

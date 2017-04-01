@@ -31,11 +31,29 @@ library
     Category.Monoidal
     Category.Semigroupal
     Functor
+    Functor.Adjoint
     Functor.Bifunctor
+    Functor.Endo
+    Functor.Endo.Functor
     Functor.Monoidal
+    Functor.Monoidal.Endo
+    Functor.Monoidal.Endo.Applicative
     Functor.PFunctor
     Functor.QFunctor
+    High.Category
+    High.Category.Monoidal
+    High.Category.Monoidal.Monad
+    High.Category.Monoidal.Monad.Monad
+    High.Category.Semigroupal
+    High.Functor
+    High.Functor.Bifunctor
+    High.Functor.PFunctor
+    High.Functor.QFunctor
+    High.FunctorCategory
+    High.Isomorphism
+    High.Semigroupoid
     Isomorphism
+    NaturalTransformation
     Semigroupoid
   build-depends:       base >=4.9 && <4.10
   hs-source-dirs:      src

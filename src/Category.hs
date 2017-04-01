@@ -9,7 +9,7 @@ module Category
   , extend_semigroupoid
   , id
   ) where
-  import Semigroupoid
+  import Semigroupoid (Semigroupoid, semigroupoid)
 
   -- > (.) = compose $ extend_semigroupoid #
   -- > id' = id #

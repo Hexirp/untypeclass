@@ -2,7 +2,6 @@
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
-{-# LANGUAGE LiberalTypeSynonyms #-}
 
 module Functor.PFunctor
   ( PFunctor(PFunctor)
@@ -11,7 +10,7 @@ module Functor.PFunctor
   , Flip(Flip)
   , flip
   ) where
-  import Functor
+  import Functor (Functor)
 
   newtype Flip t a b = Flip { flip :: t b a }
 

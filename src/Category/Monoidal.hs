@@ -10,9 +10,10 @@ module Category.Monoidal
   , left_unitor
   , right_unitor
   ) where
-  import Category.Semigroupal
-  import Isomorphism
+  import Category.Semigroupal (Semigroupal)
+  import Isomorphism (Isomorphism)
 
+  -- aassociator . id * left_unitor = right_unitor * id
   data Monoidal :: (* -> * -> *) -> (* -> * -> *) -> * -> * where
     Monoidal ::
       { extend_semigroupal :: Semigroupal cat pro

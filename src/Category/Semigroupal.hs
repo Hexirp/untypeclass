@@ -9,8 +9,9 @@ module Category.Semigroupal
   , associator
   ) where
   import Functor.Bifunctor (Bifunctor)
-  import Isomorphism
+  import Isomorphism (Isomorphism)
 
+  -- associator . associator = id * associator . associator . associator
   data Semigroupal :: (* -> * -> *) -> (* -> * -> *) -> * where
     Semigroupal ::
       { tensor_product :: Bifunctor cat cat cat pro

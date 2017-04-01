@@ -2,7 +2,6 @@
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
-{-# LANGUAGE LiberalTypeSynonyms #-}
 
 module Functor.PFunctor
   ( PFunctor(PFunctor)

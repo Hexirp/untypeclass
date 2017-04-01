@@ -37,6 +37,7 @@ library
     Functor.Endo.Functor
     Functor.Monoidal
     Functor.Monoidal.Endo
+    Functor.Monoidal.Endo.Applicative
     Functor.PFunctor
     Functor.QFunctor
     High.Category

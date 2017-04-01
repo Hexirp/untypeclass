@@ -33,6 +33,7 @@ library
     Functor
     Functor.Adjoint
     Functor.Bifunctor
+    Functor.Endo
     Functor.Monoidal
     Functor.Monoidal.Endo
     Functor.PFunctor

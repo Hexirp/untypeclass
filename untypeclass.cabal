@@ -42,6 +42,7 @@ library
     Functor.QFunctor
     High.Category
     High.Category.Monoidal
+    High.Category.Monoidal.Monad
     High.Category.Semigroupal
     High.Functor
     High.Functor.Bifunctor

@@ -11,7 +11,7 @@ module Functor.PFunctor
   , Flip(Flip)
   , flip
   ) where
-  import Functor
+  import Functor (Functor)
 
   newtype Flip t a b = Flip { flip :: t b a }
 

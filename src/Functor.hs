@@ -10,7 +10,7 @@ module Functor
   , targetCategory
   , fmap
   ) where
-  import Category
+  import Category (Category)
   
   -- > id_c = id $ sourceCategory #
   -- > id_d = id $ targetCategory #

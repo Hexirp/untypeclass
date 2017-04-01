@@ -10,8 +10,8 @@ module Category.Monoidal
   , left_unitor
   , right_unitor
   ) where
-  import Category.Semigroupal
-  import Isomorphism
+  import Category.Semigroupal (Semigroupal)
+  import Isomorphism (Isomorphism)
 
   data Monoidal :: (* -> * -> *) -> (* -> * -> *) -> * -> * where
     Monoidal ::

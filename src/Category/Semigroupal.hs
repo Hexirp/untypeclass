@@ -9,7 +9,7 @@ module Category.Semigroupal
   , associator
   ) where
   import Functor.Bifunctor (Bifunctor)
-  import Isomorphism
+  import Isomorphism (Isomorphism)
 
   data Semigroupal :: (* -> * -> *) -> (* -> * -> *) -> * where
     Semigroupal ::

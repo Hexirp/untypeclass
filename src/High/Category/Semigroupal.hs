@@ -5,7 +5,7 @@
 
 module High.Category.Semigroupal where
   import High.Functor.Bifunctor (Bifunctor)
-  import Isomorphism (Isomorphism)
+  import High.Isomorphism (Isomorphism)
 
   data Semigroupal :: ((* -> *) -> (* -> *) -> *) -> ((* -> *) -> (* -> *) -> (* -> *)) -> * where
     Semigroupal ::

@@ -47,6 +47,7 @@ library
     High.Functor.PFunctor
     High.Functor.QFunctor
     High.FunctorCategory
+    High.Isomorphism
     High.Semigroupoid
     Isomorphism
     NaturalTransformation

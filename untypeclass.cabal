@@ -33,6 +33,7 @@ library
     Functor
     Functor.Bifunctor
     Functor.Monoidal
+    Functor.Monoidal.Endo
     Functor.PFunctor
     Functor.QFunctor
     Isomorphism

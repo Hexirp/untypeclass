@@ -4,8 +4,8 @@
 {-# LANGUAGE KindSignatures #-}
 
 module High.Category where
-  import Semigroupoid (Semigroupoid)
-  
+  import High.Semigroupoid (Semigroupoid)
+
   data Category :: ((* -> *) -> (* -> *) -> *) -> * where
     Category ::
       { extend_semigroupoid :: Semigroupoid cat

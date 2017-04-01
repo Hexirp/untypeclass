@@ -43,6 +43,7 @@ library
     High.Category
     High.Category.Monoidal
     High.Category.Monoidal.Monad
+    High.Category.Monoidal.Monad.Monad
     High.Category.Semigroupal
     High.Functor
     High.Functor.Bifunctor

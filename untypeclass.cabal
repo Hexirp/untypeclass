@@ -38,6 +38,7 @@ library
     Functor.PFunctor
     Functor.QFunctor
     High.Category
+    High.Functor
     High.FunctorCategory
     High.Semigroupoid
     Isomorphism

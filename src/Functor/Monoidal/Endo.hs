@@ -7,7 +7,7 @@ module Functor.Monoidal.Endo
   ( Endo(Endo)
   , extend_monoidal
   ) where
-  import Functor.Monoidal
+  import Functor.Monoidal (Monoidal)
 
   data Endo :: (* -> * -> *) -> (* -> * -> *) -> * -> (* -> *) -> * where
     Endo ::

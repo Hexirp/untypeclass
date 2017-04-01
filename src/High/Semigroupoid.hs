@@ -3,10 +3,8 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
 
-module Semigroupoid where
-  import NaturalTransformation (NaturalTransformation)
-  
-  data Semigroupoid where
+module High.Semigroupoid where
+  data Semigroupoid :: ((* -> *) -> (* -> *) -> *) -> * where
     Semigroupoid ::
-      { compose :: (forall f g h. NaturalTransformation cat dat g h -> NaturalTransformation cat dat f g -> NaturalTransformation cat dat f h)
-      } -> Semigroupoid cat dat
+      { compose :: (forall f g h. cat g h -> cat f g -> cat f h)
+      } -> Semigroupoid cat

@@ -41,6 +41,7 @@ library
     Functor.PFunctor
     Functor.QFunctor
     High.Category
+    High.Category.Monoidal
     High.Category.Semigroupal
     High.Functor
     High.Functor.Bifunctor

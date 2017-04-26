@@ -6,7 +6,12 @@ notifications:
 git:
   depth: 1
 
-language: c
+language: generic
+
+addons:
+  apt:
+    packages:
+      - libgmp-dev
 
 before_install:
   - mkdir -p ~/.local/bin
@@ -14,10 +19,10 @@ before_install:
   - travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
 
 install:
-  - stack --skip-ghc-check setup
+  - stack --no-terminal --install-ghc test --only-dependencies
 
 script:
-  - stack --skip-ghc-check test
+  - stack --no-terminal test --haddock --no-haddock-deps
 
 cache:
   directories:

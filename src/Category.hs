@@ -5,11 +5,10 @@
 
 module Category
   ( Category(Category)
-  , category
   , extend_semigroupoid
   , id
   ) where
-  import Semigroupoid (Semigroupoid, semigroupoid)
+  import Semigroupoid (Semigroupoid)
 
   -- > (.) = compose $ extend_semigroupoid #
   -- > id' = id #
@@ -19,9 +18,3 @@ module Category
       { extend_semigroupoid :: Semigroupoid cat
       , id :: (forall a. cat a a)
       } -> Category cat
-
-  category 
-    :: (forall a b c. cat b c -> cat a b -> cat a c)
-    -> (forall a. cat a a)
-    -> Category cat
-  category c i = Category (semigroupoid c) i

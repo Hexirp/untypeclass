@@ -4,17 +4,30 @@
 {-# LANGUAGE KindSignatures #-}
 
 module Category
-  ( Category(Category)
-  , extend_semigroupoid
-  , id
+  ( Category
+  , toSemigroupoid
+  , fromSemigroupoid
+  , Composing(..)
+  , composing
   ) where
+  import Prelude (($))
   import Semigroupoid (Semigroupoid)
+  
+  type Category cat = forall a b. Composing cat a b -> cat a b
 
-  -- > (.) = compose $ extend_semigroupoid #
-  -- > id' = id #
-  -- > id' . x = x . id' = x
-  data Category :: (* -> * -> *) -> * where
-    Category ::
-      { extend_semigroupoid :: Semigroupoid cat
-      , id :: (forall a. cat a a)
-      } -> Category cat
+  toSemigroupoid :: Category cat -> Semigroupoid cat
+  toSemigroupoid cat lar rar = cat $ Composed lar $ Composed rar $ Id
+
+  fromSemigroupoid :: Semigroupoid cat -> (forall a. cat a a) -> Category cat
+  fromSemigroupoid c i = composing i c
+
+  data Composing :: (* -> * -> *) -> * -> * -> * where
+    Id :: Composing cat a a
+    Composed :: cat b c -> Composing cat a b -> Composing cat a c
+
+  composing
+    :: (forall a. cat a a)
+    -> (forall a b c. cat b c -> cat a b -> cat a c)
+    -> Composing cat a b -> cat a b
+  composing i _ Id = i
+  composing i c (Composed x xs) = x `c` composing i c xs

@@ -4,19 +4,7 @@
 {-# LANGUAGE KindSignatures #-}
 
 module Semigroupoid
-  ( Semigroupoid(Semigroupoid)
-  , semigroupoid
-  , compose
+  ( Semigroupoid
   ) where
 
-  -- > (.) = compose #
-  -- > x . (y . z) = (x . y) . z
-  data Semigroupoid :: (* -> * -> *) -> * where
-    Semigroupoid ::
-      { compose :: (forall a b c. cat b c -> cat a b -> cat a c)
-      } -> Semigroupoid cat
-
-  semigroupoid
-    :: (forall a b c. cat b c -> cat a b -> cat a c)
-    -> Semigroupoid cat
-  semigroupoid = Semigroupoid
+  type Semigroupoid cat = forall a b c. cat b c -> cat a b -> cat a c

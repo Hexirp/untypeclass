@@ -32,6 +32,13 @@ module Category
   composing i _ Id = i
   composing i c (Composed x xs) = x `c` composing i c xs
 
+  composing'
+    :: (forall a. r a a)
+    -> (forall a b c. cat b c -> r a b -> r a c)
+    -> Composing cat a b -> r a b
+  composing' i _ Id = i
+  composing' i c (Composed x xs) = x `c` composing' i c xs
+
   reComposed :: Composing cat b c -> cat a b -> Composing cat a c
   reComposed Id y = Composed y Id
   reComposed (Composed x xs) y = Composed x $ reComposed xs y

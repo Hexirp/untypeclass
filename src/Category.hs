@@ -10,7 +10,7 @@ module Category
   , Composing(..)
   , composing
   ) where
-  import Prelude (($))
+  import Data.Function (($))
   import Semigroupoid (Semigroupoid)
   
   type Category cat = forall a b. Composing cat a b -> cat a b

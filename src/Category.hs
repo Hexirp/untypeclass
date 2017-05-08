@@ -3,7 +3,7 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
 
--- | Category's module
+-- | Category's module.
 module Category
   ( Category
   , toSemigroupoid
@@ -14,25 +14,25 @@ module Category
   import Data.Function (($))
   import Semigroupoid (Semigroupoid)
   
-  -- | Composition and identity morphism
+  -- | Composition and identity morphism.
   --
   -- 'Category' inherits 'Semigroupoid' and its laws by 'toSemigroupoid'.
   type Category cat = forall a b. Composing cat a b -> cat a b
 
-  -- | Convert 'Category' to 'Semigroupoid'
+  -- | Convert 'Category' to 'Semigroupoid'.
   toSemigroupoid :: Category cat -> Semigroupoid cat
   toSemigroupoid cat lar rar = cat $ Composed lar $ Composed rar $ Id
 
-  -- | Make 'Category' from 'Semigroupoid'
+  -- | Make 'Category' from 'Semigroupoid'.
   fromSemigroupoid :: Semigroupoid cat -> (forall a. cat a a) -> Category cat
   fromSemigroupoid c i = composing i c
 
-  -- | Composition of morphisms
+  -- | Composition of morphisms.
   data Composing :: (* -> * -> *) -> * -> * -> * where
     Id :: Composing cat a a
     Composed :: cat b c -> Composing cat a b -> Composing cat a c
 
-  -- | Run 'Composing'
+  -- | Run 'Composing'.
   composing
     :: (forall a. cat a a)
     -> (forall a b c. cat b c -> cat a b -> cat a c)
@@ -40,6 +40,7 @@ module Category
   composing i _ Id = i
   composing i c (Composed x xs) = x `c` composing i c xs
 
+  -- | Fold 'Composing'.
   composing'
     :: (forall a. r a a)
     -> (forall a b c. cat b c -> r a b -> r a c)
@@ -47,6 +48,7 @@ module Category
   composing' i _ Id = i
   composing' i c (Composed x xs) = x `c` composing' i c xs
 
+  -- | Compose a morphism from the right.
   reComposed :: Composing cat b c -> cat a b -> Composing cat a c
   reComposed Id y = Composed y Id
   reComposed (Composed x xs) y = Composed x $ reComposed xs y

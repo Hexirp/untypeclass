@@ -22,6 +22,9 @@ module Category
   -- | Convert 'Category' to 'Semigroupoid'.
   toSemigroupoid :: Category cat -> Semigroupoid cat
   toSemigroupoid cat lar rar = cat $ Composed lar $ Composed rar $ Id
+  
+  toIdmorphism :: Category cat -> Idmorphism cat
+  toIdmorphism cat = cat Id
 
   -- | Make 'Category' from 'Semigroupoid'.
   fromSemigroupoid :: Idmorphism cat -> Semigroupoid cat -> Category cat
@@ -46,3 +49,7 @@ module Category
   reComposed :: Composing cat b c -> cat a b -> Composing cat a c
   reComposed Id y = Composed y Id
   reComposed (Composed x xs) y = Composed x $ reComposed xs y
+  
+  append :: Composing cat b c -> Composing cat a b -> Composing cat a c
+  append Id y = y
+  append (Composed x xs) y = Composed x $ append xs y

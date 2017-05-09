@@ -24,8 +24,10 @@ module Category
   toSemigroupoid cat lar rar = cat $ Composed lar $ Composed rar $ Id
 
   -- | Make 'Category' from 'Semigroupoid'.
-  fromSemigroupoid :: Semigroupoid cat -> (forall a. cat a a) -> Category cat
+  fromSemigroupoid :: Semigroupoid cat -> Idmorphism cat -> Category cat
   fromSemigroupoid c i = composing i c
+  
+  type Idmorphism cat = forall a. cat a a
 
   -- | Composition of morphisms.
   data Composing :: (* -> * -> *) -> * -> * -> * where
@@ -34,8 +36,8 @@ module Category
 
   -- | Run 'Composing'.
   composing
-    :: (forall a. cat a a)
-    -> (forall a b c. cat b c -> cat a b -> cat a c)
+    :: Idmorphism cat
+    -> Semigroupoid cat
     -> Composing cat a b -> cat a b
   composing i _ Id = i
   composing i c (Composed x xs) = x `c` composing i c xs

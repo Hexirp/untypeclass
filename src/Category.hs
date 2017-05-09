@@ -7,9 +7,13 @@
 module Category
   ( Category
   , toSemigroupoid
+  , toIdmorphism
   , fromSemigroupoid
+  , Idmorphism
   , Composing(..)
   , composing
+  , reComposed
+  , append
   ) where
   import Data.Function (($))
   import Semigroupoid (Semigroupoid)
@@ -23,13 +27,15 @@ module Category
   toSemigroupoid :: Category cat -> Semigroupoid cat
   toSemigroupoid cat lar rar = cat $ Composed lar $ Composed rar $ Id
   
+  -- | Convert 'Category' to 'Idmorphism'.
   toIdmorphism :: Category cat -> Idmorphism cat
   toIdmorphism cat = cat Id
 
-  -- | Make 'Category' from 'Semigroupoid'.
+  -- | Make 'Category' from 'Idmorphism' and 'Semigroupoid'.
   fromSemigroupoid :: Idmorphism cat -> Semigroupoid cat -> Category cat
   fromSemigroupoid = composing 
   
+  -- | Identity morphism.
   type Idmorphism cat = forall a. cat a a
 
   -- | Composition of morphisms.
@@ -50,6 +56,7 @@ module Category
   reComposed Id y = Composed y Id
   reComposed (Composed x xs) y = Composed x $ reComposed xs y
   
+  -- | Compose two morphisms.
   append :: Composing cat b c -> Composing cat a b -> Composing cat a c
   append Id y = y
   append (Composed x xs) y = Composed x $ append xs y

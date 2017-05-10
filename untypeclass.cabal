@@ -8,7 +8,7 @@ name:                untypeclass
 --                   | | | +--- code changes with no API change
 version:             0.0.0.0
 
-synopsis:            It's a package made for practice.
+synopsis:            Category theory in Haskell
 -- description:         
 
 homepage:            https://github.com/Hexirp/untypeclass

@@ -14,6 +14,9 @@ module Category
   , composing
   , reComposed
   , append
+  , composingIdmorphism
+  , composingSemigroupoid
+  , composingCategory
   ) where
   import Data.Function (($))
   import Semigroupoid (Semigroupoid)
@@ -60,3 +63,15 @@ module Category
   append :: Composing cat b c -> Composing cat a b -> Composing cat a c
   append Id y = y
   append (Composed x xs) y = Composed x $ append xs y
+  
+  -- | 'Idmorphism' of 'Composing'
+  composingIdmorphism :: Idmorphism (Composing cat)
+  composingIdmorphism = Id
+  
+  -- | 'Semigroupoid' of 'Composing'
+  composingSemigroupoid :: Semigroupoid (Composing cat)
+  composingSemigroupoid = append
+  
+  -- | 'Category' of 'Composing'.
+  composingCategory :: Category (Composing cat)
+  composingCategory = fromSemigroupoid Id append

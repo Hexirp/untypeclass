@@ -5,7 +5,6 @@
 
 module Functor
   ( Functor
-  , functor
   , sourceCategory
   , targetCategory
   , fmap
@@ -25,10 +24,3 @@ module Functor
       , targetCategory :: Category dat
       , fmap :: (forall a b. cat a b -> dat (f a) (f b))
       } -> Functor cat dat f
-
-  functor
-    :: Category cat
-    -> Category dat
-    -> (forall a b. cat a b -> dat (f a) (f b))
-    -> Functor cat dat f
-  functor = Functor

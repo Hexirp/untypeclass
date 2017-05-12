@@ -4,17 +4,32 @@
 {-# LANGUAGE KindSignatures #-}
 
 module Functor
-  ( Functor
+  ( Square
+  , makeSquare
+  , Functor
   , fromCategory
   , liftComposing
   ) where
+  import Control.Arrow ((&&&), (|||))
   import Data.Either (Either)
   import Category (Category, Composing(..), composing)
   
-  type Functor cat dat f = forall a b. (
-    Composing cat a b -> (cat a b, Composing dat (f a) (f b)),
-    Either (cat a b) (Composing dat (f a) (f b)) -> dat (f a) (f b))
-    
+  type Square a b c d = (a -> (b, c), Either b c -> d)
+
+  makeSquare
+    :: (a -> b)
+    -> (a -> c)
+    -> (b -> d)
+    -> (c -> d)
+    -> Square a b c d
+  makeSquare f g h i = (f &&& g, h ||| i)
+
+  type Functor cat dat f = forall a b. Square
+    (Composing cat a b)
+    (cat a b)
+    (Composing dat (f a) (f b))
+    (dat (f a) (f b))
+
   fromCategory
     :: Category cat
     -> Category dat

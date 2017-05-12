@@ -3,32 +3,46 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
 
+-- | Functor's module.
 module Functor
-  ( Functor
-  , functor
-  , sourceCategory
-  , targetCategory
-  , fmap
+  ( Square
+  , makeSquare
+  , Functor
+  , fromCategory
+  , liftComposing
   ) where
-  import Category (Category)
+  import Control.Arrow ((&&&), (|||))
+  import Data.Either (Either)
+  import Category (Category, Composing(..), composing)
   
-  -- > id_c = id $ sourceCategory #
-  -- > id_d = id $ targetCategory #
-  -- > (.~) = compose $ extend_semigroupoid $ sourceCategory #
-  -- > (~.) = compose $ extend_semigroupoid $ targetCategory #
-  -- > map' = fmap #
-  -- > map' id_c = id_d
-  -- > map' (f .~ g) = map' f ~. map' g
-  data Functor :: (* -> * -> *) -> (* -> * -> *) -> (* -> *) -> * where
-    Functor :: 
-      { sourceCategory :: Category cat
-      , targetCategory :: Category dat
-      , fmap :: (forall a b. cat a b -> dat (f a) (f b))
-      } -> Functor cat dat f
+  -- | Functions of Square.
+  type Square a b c d = (a -> (b, c), Either b c -> d)
 
-  functor
+  -- | Make Square.
+  makeSquare
+    :: (a -> b)
+    -> (a -> c)
+    -> (b -> d)
+    -> (c -> d)
+    -> Square a b c d
+  makeSquare f g h i = (f &&& g, h ||| i)
+
+  -- | Mapping between two categories.
+  type Functor cat dat f = forall a b. Square
+    (Composing cat a b)
+    (cat a b)
+    (Composing dat (f a) (f b))
+    (dat (f a) (f b))
+
+  fromCategory
     :: Category cat
     -> Category dat
     -> (forall a b. cat a b -> dat (f a) (f b))
     -> Functor cat dat f
-  functor = Functor
+  fromCategory c d f = fromCategory c d f
+  
+  liftComposing
+    :: (forall a b. cat a b -> dat (f a) (f b))
+    -> Composing cat a b -> Composing dat (f a) (f b)
+  liftComposing = liftComposing
+

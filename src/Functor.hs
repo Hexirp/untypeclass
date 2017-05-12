@@ -8,9 +8,7 @@ module Functor
   , fromCategory
   , liftComposing
   ) where
-  import Control.Arrow ((&&&))
-  import Data.Either (Either, either)
-  import Data.Function ((.), ($))
+  import Data.Either (Either)
   import Category (Category, Composing(..), composing)
   
   type Functor cat dat f = forall a b. (
@@ -22,9 +20,10 @@ module Functor
     -> Category dat
     -> (forall a b. cat a b -> dat (f a) (f b))
     -> Functor cat dat f
-  fromCategory c d f = (c &&& liftComposing f, either f d)
+  fromCategory c d f = fromCategory c d f
   
   liftComposing
     :: (forall a b. cat a b -> dat (f a) (f b))
     -> Composing cat a b -> Composing dat (f a) (f b)
-  liftComposing = composing Id $ Composed . f
+  liftComposing = liftComposing
+

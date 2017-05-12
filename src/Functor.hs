@@ -3,6 +3,7 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
 
+-- | Functor's module.
 module Functor
   ( Square
   , makeSquare
@@ -14,8 +15,10 @@ module Functor
   import Data.Either (Either)
   import Category (Category, Composing(..), composing)
   
+  -- | Functions of Square.
   type Square a b c d = (a -> (b, c), Either b c -> d)
 
+  -- | Make Square.
   makeSquare
     :: (a -> b)
     -> (a -> c)
@@ -24,6 +27,7 @@ module Functor
     -> Square a b c d
   makeSquare f g h i = (f &&& g, h ||| i)
 
+  -- | Mapping between two categories.
   type Functor cat dat f = forall a b. Square
     (Composing cat a b)
     (cat a b)

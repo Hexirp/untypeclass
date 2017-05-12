@@ -5,22 +5,10 @@
 
 module Functor
   ( Functor
-  , sourceCategory
-  , targetCategory
-  , fmap
   ) where
-  import Category (Category)
+  import Data.Either (Either)
+  import Category (Composing)
   
-  -- > id_c = id $ sourceCategory #
-  -- > id_d = id $ targetCategory #
-  -- > (.~) = compose $ extend_semigroupoid $ sourceCategory #
-  -- > (~.) = compose $ extend_semigroupoid $ targetCategory #
-  -- > map' = fmap #
-  -- > map' id_c = id_d
-  -- > map' (f .~ g) = map' f ~. map' g
-  data Functor :: (* -> * -> *) -> (* -> * -> *) -> (* -> *) -> * where
-    Functor :: 
-      { sourceCategory :: Category cat
-      , targetCategory :: Category dat
-      , fmap :: (forall a b. cat a b -> dat (f a) (f b))
-      } -> Functor cat dat f
+  type Functor cat dat f = forall a b. (
+    Composing cat a b -> (cat a b, Composing dat (f a) (f b)),
+    Either (cat a b) (Composing dat (f a) (f b)) -> dat (f a) (f b))

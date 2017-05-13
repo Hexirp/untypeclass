@@ -8,7 +8,7 @@ module Isomorphism
   , to
   , from
   ) where
-  import Category (Category)
+  import Data.Categorical.Category (Category)
 
   -- (.) = compose $ category #
   -- id' = id $ category #

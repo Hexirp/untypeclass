@@ -4,7 +4,7 @@
 {-# LANGUAGE KindSignatures #-}
 
 -- | Functor's module.
-module Functor
+module Data.Categorical.Functor
   ( Square
   , makeSquare
   , Functor
@@ -13,7 +13,7 @@ module Functor
   ) where
   import Control.Arrow ((&&&), (|||))
   import Data.Either (Either)
-  import Category (Category, Composing(..), composing)
+  import Data.Categorical.Category (Category, Composing(..), composing)
   
   -- | Functions of Square.
   type Square a b c d = (a -> (b, c), Either b c -> d)

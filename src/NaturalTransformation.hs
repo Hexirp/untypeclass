@@ -4,7 +4,7 @@
 {-# LANGUAGE KindSignatures #-}
 
 module NaturalTransformation where
-  import Functor (Functor)
+  import Data.Categorical.Functor (Functor)
 
   -- natural . sourceFunctor f = targetFunctor f . natural
   data NaturalTransformation :: (* -> * -> *) -> (* -> * -> *) -> (* -> *) -> (* -> *) -> * where

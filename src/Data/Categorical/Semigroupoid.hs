@@ -4,7 +4,7 @@
 {-# LANGUAGE KindSignatures #-}
 
 -- | Semigroupoid's module
-module Semigroupoid
+module Data.Categorical.Semigroupoid
   ( Semigroupoid
   ) where
 

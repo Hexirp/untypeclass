@@ -9,7 +9,7 @@ module Functor.Adjoint
   , rightFunctor
   , adjunct
   ) where
-  import Functor (Functor)
+  import Data.Categorical.Functor (Functor)
   import Isomorphism (Isomorphism)
 
   type Hask = (->)

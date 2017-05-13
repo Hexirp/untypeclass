@@ -8,7 +8,7 @@ module Functor.QFunctor
   , qfunctor
   , extend_functor
   ) where
-  import Functor (Functor)
+  import Data.Categorical.Functor (Functor)
 
   data QFunctor :: (* -> * -> *) -> (* -> * -> *) -> (* -> * -> *) -> * where
     QFunctor ::

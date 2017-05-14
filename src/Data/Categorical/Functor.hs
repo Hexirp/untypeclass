@@ -34,6 +34,7 @@ module Data.Categorical.Functor
     (Composing dat (f a) (f b))
     (dat (f a) (f b))
 
+  -- | Make 'Functor' from 'Category' anda function.
   fromCategory
     :: Category cat
     -> Category dat
@@ -41,8 +42,10 @@ module Data.Categorical.Functor
     -> Functor cat dat f
   fromCategory c d f = makeSquare c (liftComposing f) f d
 
+  -- | Convert a function to act on 'Composing'
   liftComposing
     :: (forall a b. cat a b -> dat (f a) (f b))
     -> Composing cat a' b' -> Composing dat (f a') (f b')
-  liftComposing = liftComposing
+  liftComposing _ Id = Id
+  liftComposing f (Composed x xs) = Composed (f x) (liftComposing f xs)
 

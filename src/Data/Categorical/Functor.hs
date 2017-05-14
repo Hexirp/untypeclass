@@ -46,6 +46,5 @@ module Data.Categorical.Functor
   liftComposing
     :: (forall a b. cat a b -> dat (f a) (f b))
     -> Composing cat a' b' -> Composing dat (f a') (f b')
-  liftComposing _ Id = Id
-  liftComposing f (Composed x xs) = Composed (f x) (liftComposing f xs)
+  liftComposing f = composing Id (\x xs -> Composed (f x) (liftComposing f xs))
 

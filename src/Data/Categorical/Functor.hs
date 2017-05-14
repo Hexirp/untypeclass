@@ -45,9 +45,8 @@ module Data.Categorical.Functor
 
   -- | Convert a function to act on 'Composing'
   liftComposing
-    :: (forall a b. cat a b -> LiftBoth f dat a b)
-    -> Composing cat a' b' -> Composing (LiftBoth f dat) a' b'
-  liftComposing f = composing Id (\x xs -> Composed (f x) (liftComposing f xs))
-
-  type LiftBoth f g a b = g (f a) (f b)
+    :: (forall a b. cat a b -> dat (f a) (f b))
+    -> Composing cat a' b' -> Composing dat (f a') (f b')
+  liftComposing _ Id = Id
+  liftComposing f (Composed x xs) = Composed (f x) (liftComposing f xs)
 

@@ -2,7 +2,6 @@
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
-{-# LANGUAGE LiberalTypeSynonyms #-}
 
 -- | Functor's module.
 module Data.Categorical.Functor

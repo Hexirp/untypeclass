@@ -1,8 +1,3 @@
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE GADTs #-}
-{-# LANGUAGE KindSignatures #-}
-
 -- | Semigroupoid's module
 module Data.Categorical.Semigroupoid
   ( Semigroupoid

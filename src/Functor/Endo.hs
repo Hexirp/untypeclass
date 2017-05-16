@@ -4,7 +4,7 @@
 {-# LANGUAGE KindSignatures #-}
 
 module Functor.Endo where
-  import Functor (Functor)
+  import Data.Categorical.Functor (Functor)
 
   data Endo :: (* -> * -> *) -> (* -> *) -> * where
     Endo ::

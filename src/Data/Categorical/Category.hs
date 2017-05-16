@@ -1,10 +1,7 @@
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
 
 -- | Category's module.
-module Category
+module Data.Categorical.Category
   ( Category
   , toSemigroupoid
   , toIdmorphism
@@ -19,7 +16,7 @@ module Category
   , composingCategory
   ) where
   import Data.Function (($))
-  import Semigroupoid (Semigroupoid)
+  import Data.Categorical.Semigroupoid (Semigroupoid)
   
   -- | Composition and identity morphism.
   --

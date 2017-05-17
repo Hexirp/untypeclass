@@ -7,7 +7,8 @@ module Data.Categorical.Functor
   , liftComposing
   ) where
   import Control.Arrow ((&&&), (|||))
-  import Data.Either (Either)
+  import Data.Either (Either(Left))
+  import Data.Function ((.), ($))
   import Data.Categorical.Category (Category, Composing(..), composing)
   
   -- | Functions of Square.
@@ -42,5 +43,9 @@ module Data.Categorical.Functor
     :: (forall a b. cat a b -> dat (f a) (f b))
     -> Composing cat a' b' -> Composing dat (f a') (f b')
   liftComposing _ Id = Id
-  liftComposing f (Composed x xs) = Composed (f x) (liftComposing f xs)
+  liftComposing f (Composed x xs) = Composed (f x) $ liftComposing f xs
+
+  srcCat :: Functor cat dat f -> Category cat
+  srcCat (x, _) = first . x
+    where first (l, _) = l
 

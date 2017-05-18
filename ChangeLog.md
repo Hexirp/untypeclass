@@ -1,5 +1,5 @@
 # Revision history for untypeclass
 
-## 0.0.0.0  -- YYYY-mm-dd
+## 0.0.0.0  -- ????-??-??
 
-* First version. Released on an unsuspecting world.
+* Developed version.

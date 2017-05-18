@@ -5,9 +5,14 @@ module Data.Categorical.Functor
   , Functor
   , fromCategory
   , liftComposing
+  , srcCat
+  , mkFmapCmps
+  , mkFmap
+  , tgtCat
   ) where
   import Control.Arrow ((&&&), (|||))
-  import Data.Either (Either(Left))
+  import Data.Tuple (fst, snd)
+  import Data.Either (Either(..))
   import Data.Function ((.), ($))
   import Data.Categorical.Category (Category, Composing(..), composing)
   
@@ -45,7 +50,21 @@ module Data.Categorical.Functor
   liftComposing _ Id = Id
   liftComposing f (Composed x xs) = Composed (f x) $ liftComposing f xs
 
+  -- | Convert 'Functor' to source 'Category'
   srcCat :: Functor cat dat f -> Category cat
-  srcCat (x, _) = first . x
-    where first (l, _) = l
+  srcCat x = fst . (fst x)
+
+  -- | Convert 'Functor' to lifted fmap
+  fmapCmps
+    :: Functor cat dat f
+    -> Composing cat a b -> Composing dat (f a) (f b)
+  fmapCmps x = snd . (fst x)
+
+  -- | Convert 'Functor' to fmap
+  mkFmap :: Functor cat dat f -> cat a b -> dat (f a) (f b)
+  mkFmap x = (snd x) . Left
+
+  -- | Convert 'Functor' to target 'Category'
+  tgtCat :: Functor cat dat f -> Category dat
+  tgtCat x = (snd x) . Right
 

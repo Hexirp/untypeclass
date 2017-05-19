@@ -68,3 +68,6 @@ module Data.Categorical.Functor
   tgtCat :: Functor cat dat f -> Category dat
   tgtCat x = (snd x) . Right
 
+  -- | Lift 'Category'
+  data LiftBoth f cat a b = InLiftB { outLiftB :: cat (f a) (f b) }
+

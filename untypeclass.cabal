@@ -22,7 +22,7 @@ maintainer:          https://github.com/Hexirp/untypeclass/issues
 
 category:            Data
 build-type:          Simple
-extra-source-files:  ChangeLog.md
+extra-source-files:  ChangeLog.md, README.md
 cabal-version:       >=1.10
 
 library

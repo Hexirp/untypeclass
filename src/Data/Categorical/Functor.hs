@@ -6,9 +6,9 @@ module Data.Categorical.Functor
   , fromCategory
   , liftComposing
   , srcCat
-  , mkFmapCmps
+  , fmapCmps
   , mkFmap
-  , tgtCat
+  -- , tgtCat
   ) where
   import Control.Arrow ((&&&), (|||))
   import Data.Tuple (fst, snd)
@@ -64,9 +64,9 @@ module Data.Categorical.Functor
   mkFmap :: Functor cat dat f -> cat a b -> dat (f a) (f b)
   mkFmap x = (snd x) . Left
 
-  -- | Convert 'Functor' to target 'Category'
-  tgtCat :: Functor cat dat f -> Category dat
-  tgtCat x = (snd x) . Right
+  -- -- | Convert 'Functor' to target 'Category'
+  -- tgtCat :: Functor cat dat f -> Category dat
+  -- tgtCat x = (snd x) . Right
 
   -- | Lift 'Category'
   data LiftBoth f cat a b = InLiftB { outLiftB :: cat (f a) (f b) }

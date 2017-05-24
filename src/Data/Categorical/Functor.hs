@@ -8,7 +8,9 @@ module Data.Categorical.Functor
   , srcCat
   , fmapCmps
   , mkFmap
-  -- , tgtCat
+  , tgtCat
+  , LiftBoth (InLiftB)
+  , outLiftB
   ) where
   import Control.Arrow ((&&&), (|||))
   import Data.Tuple (fst, snd)

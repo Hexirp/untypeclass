@@ -38,7 +38,7 @@ module Data.Categorical.Functor
   -- | Make 'Functor' from 'Category' anda function.
   fromCategory
     :: Category cat
-    -> Category dat
+    -> Category (LiftBoth f dat)
     -> (forall a b. cat a b -> LiftBoth f dat a b)
     -> Functor cat dat f
   fromCategory c d f = makeSquare c (liftComposing f) f d

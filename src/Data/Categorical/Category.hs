@@ -45,7 +45,7 @@ module Data.Categorical.Category
 
   -- | Fold 'Composing'.
   composing
-    :: r x
+    :: r a
     -> (forall b c. cat b c -> r b -> r c)
     -> Composing cat x a -> r a
   composing i _ Id = i

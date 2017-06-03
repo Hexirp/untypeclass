@@ -45,21 +45,19 @@ module Data.Categorical.Category
 
   -- | Fold 'Composing'.
   composing
-    :: (forall a. r a a)
-    -> (forall a b c. cat b c -> r a b -> r a c)
-    -> Composing cat a b -> r a b
+    :: r x
+    -> (forall b c. cat b c -> r b -> r c)
+    -> Composing cat x a -> r a
   composing i _ Id = i
   composing i c (Composed x xs) = x `c` composing i c xs
 
   -- | Compose a morphism from the right.
   reComposed :: Composing cat b c -> cat a b -> Composing cat a c
-  reComposed Id y = Composed y Id
-  reComposed (Composed x xs) y = Composed x $ reComposed xs y
+  reComposed x y = composing (Composed y Id) Composed x
   
   -- | Compose two morphisms.
   append :: Composing cat b c -> Composing cat a b -> Composing cat a c
-  append Id y = y
-  append (Composed x xs) y = Composed x $ append xs y
+  append x y = composing y Composed x
   
   -- | 'Idmorphism' of 'Composing'
   composingIdmorphism :: Idmorphism (Composing cat)

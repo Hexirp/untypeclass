@@ -14,9 +14,9 @@ module Data.Categorical.Functor
   ) where
   import Control.Arrow ((&&&), (|||))
   import Data.Tuple (fst, snd)
-  import Data.Either (Either(..))
+  import Data.Either (Either(Left, Right))
   import Data.Function ((.), ($))
-  import Data.Categorical.Category (Category, Composing(..), composing)
+  import Data.Categorical.Category (Category, Composing(Id, Composed), composing)
   
   -- | Functions of Square.
   type Square a b c d = (a -> (b, c), Either b c -> d)
